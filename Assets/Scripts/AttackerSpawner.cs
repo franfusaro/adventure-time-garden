@@ -12,10 +12,11 @@ public class AttackerSpawner : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
+        yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         while (spawn)
         {
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
             SpawnAttacker();
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
         }
     }
     
