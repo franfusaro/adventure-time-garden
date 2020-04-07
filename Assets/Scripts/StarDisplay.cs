@@ -18,7 +18,10 @@ public class StarDisplay : MonoBehaviour
     
     private void UpdateDisplay()
     {
-        starText.text = stars.ToString();
+        if (!FindObjectOfType<LevelController>().IsLevelFinished())
+        {
+            starText.text = stars.ToString();
+        }
     }
 
     public bool HaveEnoughStars(int amount)
