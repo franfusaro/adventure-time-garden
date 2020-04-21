@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8eaa3eb46c49e41870a36d0b6b31da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenStarsSpawn: 15
+  minTimeBetweenStarsSpawn: 15
+  maxTimeBetweenStarsSpawn: 20
   newStarPrefab: {fileID: 4058434369398629006, guid: 750a45ace649d244b9be763436d0ea32,
     type: 3}
   starSpawnXDelta: 0.5

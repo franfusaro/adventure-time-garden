@@ -10,11 +10,18 @@ public class Health : MonoBehaviour
     [SerializeField] GameObject deathVFX;
 
     float fullHealth;
+    float healthPerDifficulty = 50f;
 
     private void Start()
     {
+        health = CalculateHealthBasedOnDifficulty();
         fullHealth = health;
         UpdateHealthDisplay();
+    }
+
+    private float CalculateHealthBasedOnDifficulty()
+    {
+        return health + PlayerPrefsController.GetDifficulty() * healthPerDifficulty;
     }
 
     private void UpdateHealthDisplay()

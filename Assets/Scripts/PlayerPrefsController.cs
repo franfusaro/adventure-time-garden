@@ -20,11 +20,19 @@ public class PlayerPrefsController : MonoBehaviour
 
     public static float GetMasterVolume()
     {
+        if (!PlayerPrefs.HasKey(MASTER_VOLUME_KEY))
+        {
+            SetMasterVolume(OptionsControllers.defaultVolume);
+        }
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
     }
 
     public static void SetDifficulty(float difficulty)
     {
+        if (!PlayerPrefs.HasKey(DIFFICULTY_KEY))
+        {
+            SetMasterVolume(Mathf.Clamp(OptionsControllers.defaultDifficulty, MIN_VOLUME, MAX_VOLUME));
+        }
         difficulty = Mathf.Clamp(difficulty, MIN_VOLUME, MAX_VOLUME);
         PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
     }

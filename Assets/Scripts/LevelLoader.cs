@@ -11,18 +11,16 @@ public class LevelLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(currentSceneIndex);
         if (currentSceneIndex == 0)
         {
+            Time.timeScale = 1;
             StartCoroutine(WaitForTime());
         }
     }
 
     private IEnumerator WaitForTime()
     {
-        Debug.Log("waiting for " + timeToWait);
         yield return new WaitForSeconds(timeToWait);
         LoadNextScene();
     }

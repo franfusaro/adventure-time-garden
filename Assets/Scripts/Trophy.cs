@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Trophy : MonoBehaviour
 {
-    [SerializeField] float timeBetweenStarsSpawn = 5f;
+    [SerializeField] float minTimeBetweenStarsSpawn = 10f;
+    [SerializeField] float maxTimeBetweenStarsSpawn = 20f;
     [SerializeField] Star newStarPrefab;
 
     [SerializeField] float starSpawnXDelta = 0.5f;
@@ -20,7 +21,7 @@ public class Trophy : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(timeBetweenStarsSpawn);
+            yield return new WaitForSeconds(Random.Range(minTimeBetweenStarsSpawn, maxTimeBetweenStarsSpawn));
             Star star = Instantiate(newStarPrefab, transform.position, transform.rotation) as Star;
             star.SetEndSpawnPosition(transform.position + new Vector3(Random.Range(-starSpawnXDelta, starSpawnXDelta), Random.Range(-starSpawnYDelta, starSpawnYDelta), 0));
             star.SetSpawnSpeed(0.75f);
